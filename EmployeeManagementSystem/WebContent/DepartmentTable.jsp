@@ -6,19 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Department Table</title>
-<style>
-a:link{
-	color:rgb(0,153,77);
-}
-a:visited{
-	color:rgb(0,153,77);
-}
-a:hover{
-	color:rgb(0,255,128);
-}
-a:active{
-	color:rgb(0,0,0);
-}</style>
+<link rel="stylesheet" href="EMSStyles.css">
 </head>
 <body>
 <%
@@ -27,8 +15,8 @@ try {
 	Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jumpdba","root","root");
 	Statement st=conn.createStatement();
 	ResultSet rs = st.executeQuery("select * from department_info");
-	out.println("<table border =\"1\">");
 %>
+<table>
 <tr>
 	<th>Department Name</th>
 	<th>Department Description</th>
@@ -42,13 +30,13 @@ try {
 		}
 		out.println("</tr>");
 	}		
-	out.println("</table>");
 }catch(ClassNotFoundException e) {
 	e.printStackTrace();
 }catch (SQLException e) {
 	e.printStackTrace();
 }
 %>
+</table>
 <br>
 <a href="Index.jsp">Back to Home</a><br>
 </body>
